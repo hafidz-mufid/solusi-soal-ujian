@@ -1,0 +1,456 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % memungkinkan penggunaan komentar multi-baris (\ifx \fi) 
+\usepackage{lipsum} % Paket ini hanya menghasilkan teks pengisi Lorem Ipsum. 
+\usepackage{fullpage} % mengubah margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+% \usepackage[numbered]{mcode} Jika ingin menggunakan mcode.sty
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+\usepackage{amsmath,systeme}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+
+%%%
+
+%----------------------------------------------------------------------------------------
+%   FONTS
+%----------------------------------------------------------------------------------------
+
+\usepackage[full]{textcomp}
+\usepackage{baskervald}
+
+% Anda bisa mempertimbangkan menggunakan stix daripada newtxmatn
+%\usepackage[baskervaldx]{newtxmath}
+
+
+%\usepackage{bm}
+\usepackage{amsmath,amssymb}  
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc }% Diperlukan untuk menyertakan huruf dengan aksen
+\usepackage[T1]{fontenc} % Menggunakan encoding 8-bit yang memiliki 256 glif
+\usepackage{mathtools}
+
+% Menggunakan stix double struck untuk konsistensi
+% \usepackage{dsfont}
+
+% Anda tidak dapat menggunakan rsfso dan mathrsfs (yang pada dasarnya sama)
+% tetapi di sini saya tetap menggunakan stix script
+%%\usepackage[scr, scaled=1.1]{rsfso}
+%% \usepackage{mathrsfs}
+
+\usepackage{scalerel}
+%\usepackage{amsthm}
+
+\usepackage{stix2}
+%----------------------------------------------------------------------------------------
+%   bracket
+%----------------------------------------------------------------------------------------
+
+\usepackage{braket}
+
+%----------------------------------------------------------------------------------------
+%   cancel
+%----------------------------------------------------------------------------------------
+\usepackage{cancel}
+
+\def\rcurs{\mathscr{r}}
+\def\brcurs{\mathbfscr{r}}
+\def\hrcurs{\hat{\brcurs}}
+
+%%%
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%%%
+
+%fbox
+
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+
+%%%
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+    
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\newenvironment{problem}[2][Soal]
+    { \begin{mdframed}[backgroundcolor=violet!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Mendefinisikan environment untuk solution
+\newenvironment{solution}
+    {\textit{Solusi:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Header-Pastikan informasi ini diperbarui!!!! 
+\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\large\textbf{Methuselah'23 Hafidz A. Mufid} \hfill \textbf{Pembahasan *UTS/UAS* *Tahun*}   \\
+\normalsize Mata Kuliah: *AS/FIxxxx* - *Nama Mata Kuliah* \hfill Semester *Ganjil/Genap*\\
+\noindent\rule{7in}{2.8pt}
+\begin{center}
+    \textit{Disclaimer}:\\
+    Solusi ini bukanlah solusi resmi sehingga mungkin terdapat kesalahan. Jika ada saran atau koreksi, silakan hubungi penulis. Jika terdapat soal yang kembali muncul di ujian, jangan salin mentah-mentah dari solusi ini. Silakan pahami solusi ini dan jawab dengan bahasa sendiri. Semangat!
+\end{center}
+\noindent\rule{7in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{1}
+\text{[CO 1]} \lipsum[1]
+\end{problem}
+
+\begin{solution}
+\lipsum[1-2]
+\end{solution} 
+\noindent\rule{7in}{2.8pt}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{2}
+\text{[CO 2]} Bagaimana cara membuat persamaan? 
+\end{problem}
+
+\begin{solution}
+Persamaan dapat dibuat dengan menggunakan \textit{environment} \verb|\begin{equation}|. Misalnya:
+    \begin{equation}\label{eq: 1}
+        \mathcal{R}^{\alpha\beta} - \dfrac{1}{2}g^{\alpha\beta}\mathcal{R} =
+        8\pi GT^{\alpha\beta}
+    \end{equation}
+
+Sebagai tambahan, \textit{environment} \verb|\begin{split}| memiliki garis vertikal pada setiap jeda baris dan untuk melakukannya, ada cara khusus:
+    \begin{equation}
+    \begin{split}
+        \dfrac{1}{\sqrt{-g}}\partial_{\uprho}(\sqrt{-g}) & = -\dfrac{1}{2(-g)}\partial_{\uprho}(g) \label{eq: 2} \\
+        & = \dfrac{1}{2g}\dfrac{\delta(g)}{\delta(g_{\upmu\upnu})}\partial_{\uprho}(g_{\upmu\upnu}) \nonumber \\
+        & = \dfrac{1}{2g}gg^{\upmu\upnu}\partial_{\uprho}(g_{\upmu\upnu}) \nonumber \\
+        & = \dfrac{1}{2}g^{\upmu\upnu}\partial_{\uprho}(g_{\upmu\upnu}) = \Gamma^{\alpha}_{\uprho\alpha}\ \label{eq:3}
+    \end{split}
+    \end{equation}
+
+Perhatikan bahwa untuk jeda baris, saya menggunakan perintah \verb|\\| dan setelah itu, untuk meng-\textit{align} saya menggunakan \verb|&| di depan tanda $=$. Untuk membuat persamaan tanpa nomor, gunakan \textit{environment} \verb|\begin{equation*}|. Misalnya:
+    \begin{equation*}
+        \mathcal{R}^{\alpha\beta} - \dfrac{1}{2}g^{\alpha\beta}\mathcal{R} =
+        8\pi GT^{\alpha\beta}
+    \end{equation*}
+
+Contoh lain:
+    \begin{equation*}
+    \begin{split}
+        \dfrac{1}{\sqrt{-g}}\partial_{\uprho}(\sqrt{-g}) & = -\dfrac{1}{2(-g)}\partial_{\uprho}(g) \label{eq: 2} \\
+        & = \dfrac{1}{2g}\dfrac{\delta(g)}{\delta(g_{\upmu\upnu})}\partial_{\uprho}(g_{\upmu\upnu}) \nonumber \\
+        & = \dfrac{1}{2g}gg^{\upmu\upnu}\partial_{\uprho}(g_{\upmu\upnu}) \nonumber \\
+        & = \dfrac{1}{2}g^{\upmu\upnu}\partial_{\uprho}(g_{\upmu\upnu}) = \Gamma^{\alpha}_{\uprho\alpha}\ \label{eq:3}
+    \end{split}
+    \end{equation*}
+
+\end{solution} 
+\noindent\rule{7in}{2.8pt}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{3}
+\text{[CO 3]} Bagaimana cara membuat jawaban akhir di dalam \textit{box}?
+\end{problem}
+
+\begin{solution}
+Gunakan \textit{environment} \verb|\begin{empheq}[box=\tcbhighmath]{equation}| untuk menambahkan \textit{box} pada jawaban akhir Anda. Anda dapat menggunakan \verb|equation| atau \verb|equation*| sesuai kebutuhan Anda. Contohnya:
+\begin{empheq}[box=\tcbhighmath]{equation*}
+    \begin{split}
+        y_c & = c_1 \cos{(3t)} + c_2 \sin{(3t)} 
+    \end{split}
+\end{empheq}
+
+Jika ingin tidak berwarna, Anda dapat menggunakan perintah \verb|\boxed{}| di dalam \textit{equation} Anda. Contohnya:
+\begin{equation*}
+        \boxed{\vec{B} = \frac{\mu_{0} \rho \omega R^{2}}{3} \:\hat{z}}
+    \end{equation*}
+\end{solution} 
+\noindent\rule{7in}{2.8pt}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{4}
+Magnetar adalah salah satu tipe bintang neutron yang dapat menghasilkan medan magnet sangat besar karena kandungan muatan dan kecepatan rotasinya yang sangat tinggi. Salah satu contoh bintang neutron Magnetar adalah J1818.0-1607. Magnetar dapat dimodelkan sebagai sebuah bola pejal dengan jejari R dan memiliki muatan $\rho$ homogen yang berputar pada porosnya, sumbu $z$, dengan kecepatan sudut $\omega$
+\begin{itemize}
+    \item[a.] Tentukan rapat arus $\vec{J}$ pada suatu posisi umum $(r', \theta ', \phi ')$ dalam Magnetar. \textbf{(10 Point)} 
+    \item[b.] Tentukan medan magnet di inti Magnetar (titik pusat Magnetar). \textbf{(10 Point)}
+    \item[c.] Magnetar memiliki besar medan magnet inti rata-rata $10^{11}$ T dan jejari rata-rata Magnetar 20 km. Jika periode rotasi Magnetar rata-rata dianggap sama dengan periode rotasi J1818.0-1607, yaitu 1,4 sekon, tentukan rapat muatan $\rho$ dari Magnetar (rata-rata) tersebut. \textbf{(10 Point)}
+\end{itemize}
+
+\end{problem}
+\begin{solution}
+\begin{itemize}
+    \item[a.] Tinjau suatu titik di Magnetar dengan panjang $r$ dan sudut $\theta$ ke arah radial atau $\hat{r}$. Vektor $\vec{\scriptr}$ berlawanan arah dengan arah radial vektor $\vec{r}$ dari Magnetar sehingga $\vec{\scriptr}$ = $-\hat{r}$. Magnetar berputar pada porosnya, sumbu $z$, sehingga $\vec{\omega}$ = $\omega\hat{z}$.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{magnetar.png}
+    \caption{Ilustrasi Magnetar}
+    \label{fig_q2l}
+    \end{figure}
+    
+    Rapat arus volume terikat $\vec{J}$ dinyatakan dengan
+    \begin{equation*}
+        \begin{split}
+        \vec{J} & = \rho v\\
+        \vec{J} & = \rho\:(\vec{\omega} \times \vec{r})\\
+        \vec{J} & = \rho\:(\omega \hat{z} \times r \hat{r})
+    \end{split}
+    \end{equation*}
+    Karena perhitungan dilakukan pada koordinat bola, ubah vektor satuan $\hat{z}$ ke dalam vektor satuan di koordinat bola. Berikut adalah transformasi koordinat kartesian ke koordinat bola
+    \begin{equation*}
+      \begin{split}
+        \hat{x} & = \sin{\theta} \cos{\phi} \:\hat{r} + \cos{\theta} \cos{\phi} \:\hat{\theta} - \sin{\phi} \:\hat{\phi}\\
+        \hat{y} & = \sin{\theta} \sin{\phi} \:\hat{r} + \cos{\theta} \sin{\phi} \:\hat{\theta} + \cos{\phi} \:\hat{\phi}\\
+        \hat{z} & = \cos{\theta} \:\hat{r} - \sin{\theta} \:\hat{\theta}
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+    \begin{split}
+        \vec{J} & = \rho\:(\omega \hat{z} \times r \hat{r})\\
+        \vec{J} & = \rho \omega r \:(\hat{z} \times \hat{r})\\
+        \vec{J} & = \rho \omega r \:((\cos{\theta} \:\hat{r} - \sin{\theta} \:\hat{\theta}) \times \hat{r})\\
+        \vec{J} & = -\rho \omega r \sin{\theta} \:(\hat{\theta} \times \hat{r})\\
+        \vec{J} & = -\rho \omega r \sin{\theta} \:(-\hat{\phi})\\
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+        \boxed{\vec{J} = \rho \omega r \sin{\theta} \:\hat{\phi}}
+    \end{equation*}
+    
+    \item[b.] Medan magnet di inti Magnetar dinyatakan dengan
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = \frac{\mu_{0}}{4\pi} \int \frac{\vec{J}\:d\tau \times \hat{\scriptr}}{\scriptr^{2}}\\
+        \vec{B} & = -\frac{\mu_{0}}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{\rho \omega r \sin{\theta} \:\hat{\phi} \cdot r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \times (-\hat{r})}{r^{2}}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \cdot (\hat{\phi} \times \hat{r})}{r^{2}}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \:\hat{\theta}}{r^{2}}\\
+    \end{split}
+    \end{equation*}
+    Ubah vektor satuan $\hat{\theta}$ ke dalam vektor satuan koordinat kartesian. Berikut adalah transformasi koordinat bola ke koordinat kartesian.
+    \begin{equation*}
+    \begin{split}
+        \hat{r} & = \sin{\theta} \cos{\phi} \:\hat{x} + \sin{\theta} \sin{\phi} \:\hat{y} + \cos{\theta} \:\hat{z}\\
+        \hat{\theta} & = \cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z}\\
+        \hat{\phi} & = -\sin{\phi} \:\hat{x} + \cos{\phi} \:\hat{y}
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi }{r^{2}} \:(\cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z})\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} {r\sin{\theta} \sin{\theta} \:dr \:d\theta \:d\phi} \:(\cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z})\\
+    \end{split}
+    \end{equation*}
+    Diketahui untuk fungsi periodik sin dan cos berikut,
+    \begin{equation*}
+    \begin{split}
+            \int \limits_{0}^{2\pi} {\sin{\phi} \:d\phi} & = \int \limits_{0}^{2\pi} {\cos{\phi} \:d\phi} & = 0
+    \end{split}
+    \end{equation*}
+    sehingga semua komponen yang mengandung $\phi$ akan bernilai nol ketika diintegralkan dalam  batas 0 sampai 2$\pi$
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \:2\pi \int \limits_{0}^{\pi} \int \limits_{0}^{R} {r\sin{\theta} \sin{\theta} \:dr \:d\theta} \:(- \sin{\theta} \:\hat{z})\\
+        \vec{B} & = \frac{\mu_{0} \rho \omega}{4\pi} \:2\pi \:\frac{R^{2}}{2} \int \limits_{0}^{\pi} {\sin^2{\theta} \:d\theta} \:(\sin{\theta} \:\hat{z})\\
+        \vec{B} & = \frac{\mu_{0} \rho \omega R^{2}}{4} \int \limits_{0}^{\pi} {(1-\cos^2\theta) \:d(-\cos\theta)}  \:\hat{z}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega R^{2}}{4} \left(\cos\theta - \frac{\cos^3\theta}{3}\right) \Bigr|_{0}^{\pi} \hat{z}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega R^{2}}{4} \left(-\frac{2}{3}-\frac{2}{3}\right) \hat{z}\\
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+        \boxed{\vec{B} = \frac{\mu_{0} \rho \omega R^{2}}{3} \:\hat{z}}
+    \end{equation*}
+    \item[c.] Diketahui medan magnet inti rata-rata  $B$ = $10^{11}$ Tesla, jejari rata-rata $R$ = $20$ km atau $20 \times 10^{3}$ m, dan periode rotasi $P$ = $1,4$ s. Rapat muatan $\rho$ rata-rata Magnetar dinyatakan dengan
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = \frac{\mu_{0} \rho \omega R^{2}}{3} \:\hat{z}\\
+        \rho & = \frac{3B}{\mu_{0} \omega R^{2}}\\
+        \rho & = \frac{3B}{\mu_{0} \frac{2\pi}{P} R^{2}}\\
+        \rho & = \frac{3BP}{\mu_{0} 2\pi R^{2}}\\
+        \rho & = \frac{3\times 10^{11} \times 1,4}{4\pi \times 10^{-7} \times 2\pi \times (20\times 10^{3})^{2}}
+    \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\rho =1,33\times10^{8} \:{C/m^3}}
+    \end{equation*}
+\end{itemize}
+\end{solution} 
+\noindent\rule{7in}{2.8pt}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{5}
+Magnetar adalah salah satu tipe bintang neutron yang dapat menghasilkan medan magnet sangat besar karena kandungan muatan dan kecepatan rotasinya yang sangat tinggi. Salah satu contoh bintang neutron Magnetar adalah J1818.0-1607. Magnetar dapat dimodelkan sebagai sebuah bola pejal dengan jejari R dan memiliki muatan $\rho$ homogen yang berputar pada porosnya, sumbu $z$, dengan kecepatan sudut $\omega$
+\begin{itemize}
+    \item[a.] Tentukan rapat arus $\vec{J}$ pada suatu posisi umum $(r', \theta ', \phi ')$ dalam Magnetar. \textbf{(10 Point)} 
+    \item[b.] Tentukan medan magnet di inti Magnetar (titik pusat Magnetar). \textbf{(10 Point)}
+    \item[c.] Magnetar memiliki besar medan magnet inti rata-rata $10^{11}$ T dan jejari rata-rata Magnetar 20 km. Jika periode rotasi Magnetar rata-rata dianggap sama dengan periode rotasi J1818.0-1607, yaitu 1,4 sekon, tentukan rapat muatan $\rho$ dari Magnetar (rata-rata) tersebut. \textbf{(10 Point)}
+\end{itemize}
+
+\end{problem}
+\begin{solution}
+\begin{itemize}
+    \item[a.] Tinjau suatu titik di Magnetar dengan panjang $r$ dan sudut $\theta$ ke arah radial atau $\hat{r}$. Vektor $\vec{\scriptr}$ berlawanan arah dengan arah radial vektor $\vec{r}$ dari Magnetar sehingga $\vec{\scriptr}$ = $-\hat{r}$. Magnetar berputar pada porosnya, sumbu $z$, sehingga $\vec{\omega}$ = $\omega\hat{z}$.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{magnetar.png}
+    \caption{Ilustrasi Magnetar}
+    \label{fig_q2l}
+    \end{figure}
+    
+    Rapat arus volume terikat $\vec{J}$ dinyatakan dengan
+    \begin{equation*}
+        \begin{split}
+        \vec{J} & = \rho v\\
+        \vec{J} & = \rho\:(\vec{\omega} \times \vec{r})\\
+        \vec{J} & = \rho\:(\omega \hat{z} \times r \hat{r})
+    \end{split}
+    \end{equation*}
+    Karena perhitungan dilakukan pada koordinat bola, ubah vektor satuan $\hat{z}$ ke dalam vektor satuan di koordinat bola. Berikut adalah transformasi koordinat kartesian ke koordinat bola
+    \begin{equation*}
+      \begin{split}
+        \hat{x} & = \sin{\theta} \cos{\phi} \:\hat{r} + \cos{\theta} \cos{\phi} \:\hat{\theta} - \sin{\phi} \:\hat{\phi}\\
+        \hat{y} & = \sin{\theta} \sin{\phi} \:\hat{r} + \cos{\theta} \sin{\phi} \:\hat{\theta} + \cos{\phi} \:\hat{\phi}\\
+        \hat{z} & = \cos{\theta} \:\hat{r} - \sin{\theta} \:\hat{\theta}
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+    \begin{split}
+        \vec{J} & = \rho\:(\omega \hat{z} \times r \hat{r})\\
+        \vec{J} & = \rho \omega r \:(\hat{z} \times \hat{r})\\
+        \vec{J} & = \rho \omega r \:((\cos{\theta} \:\hat{r} - \sin{\theta} \:\hat{\theta}) \times \hat{r})\\
+        \vec{J} & = -\rho \omega r \sin{\theta} \:(\hat{\theta} \times \hat{r})\\
+        \vec{J} & = -\rho \omega r \sin{\theta} \:(-\hat{\phi})\\
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{empheq}[box=\tcbhighmath]{equation*}
+        \vec{J} = \rho \omega r \sin{\theta} \:\hat{\phi} 
+    \end{empheq}
+    
+    \item[b.] Medan magnet di inti Magnetar dinyatakan dengan
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = \frac{\mu_{0}}{4\pi} \int \frac{\vec{J}\:d\tau \times \hat{\scriptr}}{\scriptr^{2}}\\
+        \vec{B} & = -\frac{\mu_{0}}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{\rho \omega r \sin{\theta} \:\hat{\phi} \cdot r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \times (-\hat{r})}{r^{2}}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \cdot (\hat{\phi} \times \hat{r})}{r^{2}}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi \:\hat{\theta}}{r^{2}}\\
+    \end{split}
+    \end{equation*}
+    Ubah vektor satuan $\hat{\theta}$ ke dalam vektor satuan koordinat kartesian. Berikut adalah transformasi koordinat bola ke koordinat kartesian.
+    \begin{equation*}
+    \begin{split}
+        \hat{r} & = \sin{\theta} \cos{\phi} \:\hat{x} + \sin{\theta} \sin{\phi} \:\hat{y} + \cos{\theta} \:\hat{z}\\
+        \hat{\theta} & = \cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z}\\
+        \hat{\phi} & = -\sin{\phi} \:\hat{x} + \cos{\phi} \:\hat{y}
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} \frac{r\sin{\theta} \:r^{2}\sin{\theta} \:dr \:d\theta \:d\phi }{r^{2}} \:(\cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z})\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\pi} \int \limits_{0}^{R} {r\sin{\theta} \sin{\theta} \:dr \:d\theta \:d\phi} \:(\cos{\theta} \cos{\phi} \:\hat{x} + \cos{\theta} \sin{\phi} \:\hat{y} - \sin{\theta} \:\hat{z})\\
+    \end{split}
+    \end{equation*}
+    Diketahui untuk fungsi periodik sin dan cos berikut,
+    \begin{equation*}
+    \begin{split}
+            \int \limits_{0}^{2\pi} {\sin{\phi} \:d\phi} & = \int \limits_{0}^{2\pi} {\cos{\phi} \:d\phi} & = 0
+    \end{split}
+    \end{equation*}
+    sehingga semua komponen yang mengandung $\phi$ akan bernilai nol ketika diintegralkan dalam  batas 0 sampai 2$\pi$
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = -\frac{\mu_{0} \rho \omega}{4\pi} \:2\pi \int \limits_{0}^{\pi} \int \limits_{0}^{R} {r\sin{\theta} \sin{\theta} \:dr \:d\theta} \:(- \sin{\theta} \:\hat{z})\\
+        \vec{B} & = \frac{\mu_{0} \rho \omega}{4\pi} \:2\pi \:\frac{R^{2}}{2} \int \limits_{0}^{\pi} {\sin^2{\theta} \:d\theta} \:(\sin{\theta} \:\hat{z})\\
+        \vec{B} & = \frac{\mu_{0} \rho \omega R^{2}}{4} \int \limits_{0}^{\pi} {(1-\cos^2\theta) \:d(-\cos\theta)}  \:\hat{z}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega R^{2}}{4} \left(\cos\theta - \frac{\cos^3\theta}{3}\right) \Bigr|_{0}^{\pi} \hat{z}\\
+        \vec{B} & = -\frac{\mu_{0} \rho \omega R^{2}}{4} \left(-\frac{2}{3}-\frac{2}{3}\right) \hat{z}\\
+    \end{split}
+    \end{equation*}
+    sehingga
+    \begin{empheq}[box=\tcbhighmath]{equation*}
+        \vec{B} = \frac{\mu_{0} \rho \omega R^{2}}{3} \:\hat{z} 
+    \end{empheq}
+    \item[c.] Diketahui medan magnet inti rata-rata  $B$ = $10^{11}$ Tesla, jejari rata-rata $R$ = $20$ km atau $20 \times 10^{3}$ m, dan periode rotasi $P$ = $1,4$ s. Rapat muatan $\rho$ rata-rata Magnetar dinyatakan dengan
+    \begin{equation*}
+    \begin{split}
+        \vec{B} & = \frac{\mu_{0} \rho \omega R^{2}}{3} \:\hat{z}\\
+        \rho & = \frac{3B}{\mu_{0} \omega R^{2}}\\
+        \rho & = \frac{3B}{\mu_{0} \frac{2\pi}{P} R^{2}}\\
+        \rho & = \frac{3BP}{\mu_{0} 2\pi R^{2}}\\
+        \rho & = \frac{3\times 10^{11} \times 1,4}{4\pi \times 10^{-7} \times 2\pi \times (20\times 10^{3})^{2}}
+    \end{split}
+    \end{equation*}
+    \begin{empheq}[box=\tcbhighmath]{equation*}
+        \rho =1,33\times10^{8} \:{C/m^3} 
+    \end{empheq}
+\end{itemize}
+\end{solution} 
+\noindent\rule{7in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+ 
